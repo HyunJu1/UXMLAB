@@ -45,46 +45,46 @@ public class SignupPage  extends Activity {
                 super.onPostExecute(s);
                 loading.dismiss();
                 Toast.makeText(getApplicationContext(), s, Toast.LENGTH_LONG).show();
+}
+    @Override
+    protected String doInBackground(String... params) {
+
+        try {
+            String Id = (String) params[0];
+            String Pw = (String) params[1];
+
+            String link = "http://192.168.56.1/uxmlab_regis.php";
+            String data = URLEncoder.encode("Id", "UTF-8") + "=" + URLEncoder.encode(Id, "UTF-8");
+            data += "&" + URLEncoder.encode("Pw", "UTF-8") + "=" + URLEncoder.encode(Pw, "UTF-8");
+
+            URL url = new URL(link);
+            URLConnection conn = url.openConnection();
+
+            conn.setDoOutput(true);
+            OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
+
+            wr.write(data);
+            wr.flush();
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+
+            StringBuilder sb = new StringBuilder();
+            String line = null;
+
+            // Read Server Response
+            while ((line = reader.readLine()) != null) {
+                sb.append(line);
+                break;
             }
-            @Override
-            protected String doInBackground(String... params) {
-
-                try {
-                    String Id = (String) params[0];
-                    String Pw = (String) params[1];
-
-                    String link = "http://192.168.56.1/uxmlab_regis.php";
-                    String data = URLEncoder.encode("Id", "UTF-8") + "=" + URLEncoder.encode(Id, "UTF-8");
-                    data += "&" + URLEncoder.encode("Pw", "UTF-8") + "=" + URLEncoder.encode(Pw, "UTF-8");
-
-                    URL url = new URL(link);
-                    URLConnection conn = url.openConnection();
-
-                    conn.setDoOutput(true);
-                    OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
-
-                    wr.write(data);
-                    wr.flush();
-
-                    BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-
-                    StringBuilder sb = new StringBuilder();
-                    String line = null;
-
-                    // Read Server Response
-                    while ((line = reader.readLine()) != null) {
-                        sb.append(line);
-                        break;
-                    }
-                    return sb.toString();
-                } catch (Exception e) {
-                    return new String("Exception: " + e.getMessage());
-                }
-            }
+            return sb.toString();
+        } catch (Exception e) {
+            return new String("Exception: " + e.getMessage());
         }
-        InsertData task = new InsertData();
-        task.execute(Id, Pw);
     }
+}
+        InsertData task = new InsertData();
+                task.execute(Id, Pw);
+                }
 
 
 }
