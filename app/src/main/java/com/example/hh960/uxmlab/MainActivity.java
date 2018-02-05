@@ -49,11 +49,11 @@ public class MainActivity extends AppCompatActivity {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
-        BtnSignUp = (Button)findViewById(R.id.btn_signup);
-        BtnSignIn = (Button)findViewById(R.id.btn_signin);
-        inputID = (EditText)findViewById(R.id.user_id);
-        inputPW = (EditText)findViewById(R.id.user_pw);
-        tv = (TextView)findViewById(R.id.textView2);
+        BtnSignUp = findViewById(R.id.btn_signup);
+        BtnSignIn = findViewById(R.id.btn_signin);
+        inputID = findViewById(R.id.user_id);
+        inputPW = findViewById(R.id.user_pw);
+        tv = findViewById(R.id.textView2);
 
         BtnSignIn.setOnClickListener(new OnClickListener() {
             @Override
@@ -74,20 +74,13 @@ public class MainActivity extends AppCompatActivity {
             httpclient = new DefaultHttpClient();
             httppost = new HttpPost("http://192.168.56.1/uxmlab_login.php");
             nameValuePairs = new ArrayList<NameValuePair>(2);
-            nameValuePairs.add(new BasicNameValuePair("username", inputID.getText().toString()));
+            nameValuePairs.add(new BasicNameValuePair("id", inputID.getText().toString()));
             nameValuePairs.add(new BasicNameValuePair("password", inputPW.getText().toString()));
             httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
             response = httpclient.execute(httppost);
             ResponseHandler<String> responseHandler = new BasicResponseHandler();
             final String response = httpclient.execute(httppost, responseHandler);
             System.out.println("Response : " + response);
-            runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    tv.setText("Response from PHP : " + response);
-                    dialog.dismiss();
-                }
-            });
 
             if (response.equalsIgnoreCase("User Found")) {
                 runOnUiThread(new Runnable() {
@@ -99,19 +92,22 @@ public class MainActivity extends AppCompatActivity {
 
                 startActivity((new Intent(MainActivity.this, MenuPage.class)));
                 finish();
-            } else {
-                Toast.makeText(MainActivity.this, "Login Fail", Toast.LENGTH_SHORT).show();
+            } else if (response.equalsIgnoreCase("No Such User Found")) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(MainActivity.this, "아이디 혹은 비밀번호 오류입니다.", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                finish();
             }
-        }
-        catch(Exception e)
-        {
+        } catch (Exception e) {
             dialog.dismiss();
             System.out.println("Exception : " + e.getMessage());
         }
     }
 
-    public void CliSignUp(View view)
-    {
+    public void CliSignUp(View view) {
         Intent intent = new Intent(this, SignupPage.class);
         startActivity(intent);
     }

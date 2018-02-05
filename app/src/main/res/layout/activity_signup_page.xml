@@ -4,12 +4,12 @@
     android:layout_height="match_parent">
 
     <EditText
+        android:id="@+id/new_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
         android:ems="10"
-        android:id="@+id/new_id"
-        android:hint="your@id.com" />
+        android:hint="student number"
+        android:inputType="number" />
 
     <EditText
         android:layout_width="match_parent"
@@ -18,6 +18,30 @@
         android:ems="10"
         android:id="@+id/new_pw"
         android:hint="password" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/new_pw_check"
+        android:hint="password" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:ems="10"
+        android:id="@+id/new_name"
+        android:hint="name" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/new_email"
+        android:hint="email" />
 
     <Button
         android:text="SUBMIT"

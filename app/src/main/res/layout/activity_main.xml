@@ -60,7 +60,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/user_pw"
         android:ems="10"
-        android:hint="email@input.com"
+        android:hint="id"
         android:inputType="textEmailAddress" />
 
     <TextView
