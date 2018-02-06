@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -58,7 +59,7 @@ public class BoardWriteActivity  extends Activity {
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
                 loading.dismiss();
-                Toast.makeText(getApplicationContext(), "여기까진 되는건가??", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "여기까진 되는건가??", Toast.LENGTH_SHORT).show();
                 if(s.equals("failure")){
                     Toast.makeText(getApplicationContext(), "게시물 작성 실패", Toast.LENGTH_LONG).show();
                 } else if(s.equals("success")) {

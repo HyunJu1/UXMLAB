@@ -1,8 +1,6 @@
 package com.example.hh960.uxmlab;
 
-/**
- * Created by hh960 on 2018-02-05.
- */
+
 import java.util.ArrayList;
 
 
