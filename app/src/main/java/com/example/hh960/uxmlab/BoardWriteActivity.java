@@ -37,16 +37,16 @@ public class BoardWriteActivity  extends Activity {
 
         button.setOnClickListener(new Button.OnClickListener() {
             @Override public void onClick(View view) {
-                String title = editTextTitle.getText().toString();
-                String content = editTextContent.getText().toString();
+                String board_title = editTextTitle.getText().toString();
+                String board_content = editTextContent.getText().toString();
                 String author=id;
 
-                insertoToDatabase(title, content,author);
+                insertoToDatabase(board_title, board_content,author);
             } }) ;
     }
 
 
-    private void insertoToDatabase(String title, String content, String author) {
+    private void insertoToDatabase(String board_title, String board_content, String author) {
         class InsertData extends AsyncTask<String, Void, String> {
             ProgressDialog loading;
             @Override
@@ -77,9 +77,9 @@ public class BoardWriteActivity  extends Activity {
 
                     String link = "http://192.168.56.1/uxmlab_write_board.php";
 
-                    String data =  URLEncoder.encode("$board_title", "UTF-8") + "=" + URLEncoder.encode(board_title, "UTF-8");
-                    data += "&" + URLEncoder.encode("$board_content", "UTF-8") + "=" + URLEncoder.encode(board_content, "UTF-8");
-                    data += "&" + URLEncoder.encode("$author", "UTF-8") + "=" + URLEncoder.encode(author, "UTF-8");
+                    String data =  URLEncoder.encode("board_title", "UTF-8") + "=" + URLEncoder.encode(board_title, "UTF-8");
+                    data += "&" + URLEncoder.encode("board_content", "UTF-8") + "=" + URLEncoder.encode(board_content, "UTF-8");
+                    data += "&" + URLEncoder.encode("author", "UTF-8") + "=" + URLEncoder.encode(author, "UTF-8");
 
                     URL url = new URL(link);
                     URLConnection conn = url.openConnection();
@@ -108,7 +108,7 @@ public class BoardWriteActivity  extends Activity {
         }
 
         InsertData task = new InsertData();
-        task.execute(title, content,author);
+        task.execute(board_title, board_content,author);
     }
 
 
