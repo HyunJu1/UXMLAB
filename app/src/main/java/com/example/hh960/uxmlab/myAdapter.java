@@ -25,12 +25,13 @@ public class myAdapter extends BaseExpandableListAdapter {
     private LayoutInflater inflater;
 
     //class Constructor
-    public myAdapter (Context mContext, ArrayList<Listing> listing) {
+    public myAdapter(Context mContext, ArrayList<Listing> listing) {
 
         this.mContext = mContext;
         this.listing = listing;
         inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
+
     @Override
     public int getGroupCount() {
         return listing.size();
@@ -87,7 +88,7 @@ public class myAdapter extends BaseExpandableListAdapter {
         textView.setText(positionName);
 
         ImageView imageView = (ImageView) convertView.findViewById(R.id.indicator);
-        if(isExpanded){
+        if (isExpanded) {
             imageView.setImageResource(android.R.drawable.arrow_up_float);
         } else {
             imageView.setImageResource(android.R.drawable.arrow_down_float);

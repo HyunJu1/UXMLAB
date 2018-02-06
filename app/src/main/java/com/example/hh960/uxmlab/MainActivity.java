@@ -91,6 +91,11 @@ public class MainActivity extends AppCompatActivity {
                 });
 
                 startActivity((new Intent(MainActivity.this, MenuPage.class)));
+
+
+                Intent intent= new Intent(getApplicationContext(),BoardWriteActivity.class);
+                intent.putExtra("id",inputID.getText().toString());
+                startActivity(intent);
                 finish();
             } else if (response.equalsIgnoreCase("No Such User Found")) {
                 runOnUiThread(new Runnable() {
