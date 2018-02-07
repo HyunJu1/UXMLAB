@@ -52,13 +52,13 @@ public class SignupPage  extends Activity {
         String email = editTextEmail.getText().toString();
 
         if (id.length() != 8) {
-            Toast.makeText(getApplicationContext(), "아이디를 잘못 입력하셨습니다.", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "아이디를 잘못 입력하셨습니다.", Toast.LENGTH_SHORT).show();
         } else if(password.length() < 8){
-            Toast.makeText(getApplicationContext(), "비밀번호를 8글자 이상 입력해주세요.", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "비밀번호를 8글자 이상 입력해주세요.", Toast.LENGTH_SHORT).show();
         } else if(!password.equals(check_password)){
-            Toast.makeText(getApplicationContext(), "비밀번호가 일치하지 않습니다.", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "비밀번호가 일치하지 않습니다.", Toast.LENGTH_SHORT).show();
         } else if(!checkEmail(email)){
-            Toast.makeText(getApplicationContext(), "이메일 형식이 맞지 않습니다.", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "이메일 형식이 맞지 않습니다.", Toast.LENGTH_SHORT).show();
         } else {
             insertoToDatabase(id, password, name, email);
         }

@@ -20,7 +20,8 @@
         </activity>
         <activity android:name=".MenuPage" />
         <activity android:name=".SignupPage" />
-        <activity android:name=".BoardWriteActivity"></activity>
+        <activity android:name=".BoardWriteActivity" />
+        <activity android:name=".Main2Activity"></activity>
     </application>
 
 </manifest>

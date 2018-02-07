@@ -51,8 +51,8 @@ public class MenuPage extends Activity {
     private ArrayList<Listing> getData() {
 
         Listing p1 = new Listing("1주차");
-        p1.name.add("고원준");
-        p1.name.add("Brook Raley");
+        p1.name.add("A");
+        p1.name.add("B");
         p1.name.add("박세웅");
 
         Listing p2 = new Listing("2주차");
