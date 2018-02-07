@@ -1,5 +1,7 @@
 package com.example.hh960.uxmlab;
 
+import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -31,15 +33,29 @@ public class Main2Activity extends AppCompatActivity implements LoadJSONTask.Lis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent= new Intent(getApplicationContext(),BoardWriteActivity.class);
+                Intent intent2= getIntent();
+                String id = intent2.getStringExtra("id");
+                intent.putExtra("id",id);
+                startActivity(intent);
+//                Intent intent = new Intent(Main2Activity.this, BoardWriteActivity.class);
+//                startActivity(intent);
+            }
+        });
         mListView = (ListView) findViewById(R.id.list_view);
         mListView.setOnItemClickListener(this);
         new LoadJSONTask(this).execute(URL);
     }
 
     @Override
-    public void onLoaded(List<AndroidVersion> androidList) {
+    public void onLoaded(List<Board_Read> androidList) {
 
-        for (AndroidVersion result : androidList) {
+        for (Board_Read result : androidList) {
 
             HashMap<String, String> map = new HashMap<>();
 

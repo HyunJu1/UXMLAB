@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dialog = ProgressDialog.show(MainActivity.this, "",
-                        "Validating user...", true);
+                        "Validating user...", false);
                 new Thread(new Runnable() {
                     public void run() {
                         login();
@@ -87,16 +87,18 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         Toast.makeText(MainActivity.this, "Login Success", Toast.LENGTH_SHORT).show();
+                    //    startActivity((new Intent(MainActivity.this, Main2Activity.class)));
+
+                        Intent intent= new Intent(getApplicationContext(),Main2Activity.class);
+                        intent.putExtra("id",inputID.getText().toString());
+                        startActivity(intent);
+
                     }
                 });
 
-                startActivity((new Intent(MainActivity.this, Main2Activity.class)));
 
 
-//                Intent intent= new Intent(getApplicationContext(),BoardWriteActivity.class);
-//                intent.putExtra("id",inputID.getText().toString());
-//                startActivity(intent);
-                finish();
+
             } else if (response.equalsIgnoreCase("No Such User Found")) {
                 runOnUiThread(new Runnable() {
                     @Override

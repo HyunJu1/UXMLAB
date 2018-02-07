@@ -4,7 +4,7 @@ package com.example.hh960.uxmlab;
  * Created by hh960 on 2018-02-06.
  */
 
-public class AndroidVersion {
+public class Board_Read {
 
     private String board_title;
     private String board_content;

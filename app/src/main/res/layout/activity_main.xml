@@ -25,6 +25,17 @@
        />
 
     <EditText
+        android:id="@+id/user_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/user_pw"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/user_pw"
+        android:ems="10"
+        android:hint="id"
+        android:inputType="textEmailAddress" />
+
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
@@ -51,17 +62,6 @@
         android:layout_below="@+id/btn_signin"
         android:layout_centerHorizontal="true"
         android:onClick="CliSignUp"/>
-
-    <EditText
-        android:id="@+id/user_id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/user_pw"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/user_pw"
-        android:ems="10"
-        android:hint="id"
-        android:inputType="textEmailAddress" />
 
     <TextView
         android:id="@+id/textView2"

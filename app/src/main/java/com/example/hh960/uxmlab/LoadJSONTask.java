@@ -21,7 +21,7 @@ public class LoadJSONTask extends AsyncTask<String, Void, Response> {
 
     public interface Listener {
 
-        void onLoaded(List<AndroidVersion> androidList);
+        void onLoaded(List<Board_Read> androidList);
 
         void onError();
     }
