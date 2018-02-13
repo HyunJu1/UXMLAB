@@ -28,23 +28,22 @@ import org.apache.http.message.BasicNameValuePair;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
-    ViewFlipper Vf;
-    Button BtnSignIn, BtnSignUp;
-    EditText inputID, inputPW;
-    HttpPost httppost;
-    StringBuffer buffer;
-    HttpResponse response;
-    HttpClient httpclient;
-    ArrayList<NameValuePair> nameValuePairs;
-    ProgressDialog dialog = null;
-    TextView tv;
+
+    private Button BtnSignIn, BtnSignUp;
+    private EditText inputID, inputPW;
+    private HttpPost httppost;
+    private HttpResponse response;
+    private HttpClient httpclient;
+    private ArrayList<NameValuePair> nameValuePairs;
+    private ProgressDialog dialog = null;
+    private TextView tv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
@@ -58,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         BtnSignIn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialog = ProgressDialog.show(MainActivity.this, "",
+                dialog = ProgressDialog.show(LoginActivity.this, "",
                         "Validating user...", false);
                 new Thread(new Runnable() {
                     public void run() {
@@ -86,8 +85,7 @@ public class MainActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(MainActivity.this, "Login Success", Toast.LENGTH_SHORT).show();
-                    //    startActivity((new Intent(MainActivity.this, Main2Activity.class)));
+                        Toast.makeText(LoginActivity.this, "Login Success", Toast.LENGTH_SHORT).show();
 
                         Intent intent= new Intent(getApplicationContext(),Main2Activity.class);
                         intent.putExtra("id",inputID.getText().toString());
@@ -103,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(MainActivity.this, "아이디 혹은 비밀번호 오류입니다.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "아이디 혹은 비밀번호 오류입니다.", Toast.LENGTH_SHORT).show();
                     }
                 });
                 finish();

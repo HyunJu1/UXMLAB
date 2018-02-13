@@ -27,7 +27,12 @@ public class Main2Activity extends AppCompatActivity implements LoadJSONTask.Lis
     private static final String KEY_BOARD_TITLE = "board_title";
     private static final String KEY_BOARD_CONTENT = "board_content";
     private static final String KEY_AUTHOR = "author";
-
+//    @Override
+//    protected void
+//    onResume() {
+//        super.onResume();
+//        setContentView(R.layout.activity_main2);
+//    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
