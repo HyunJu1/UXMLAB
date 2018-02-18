@@ -20,7 +20,7 @@ public class Main2Activity extends AppCompatActivity implements LoadJSONTask.Lis
 
     private ListView mListView;
 
-    public static final String URL = "http://192.168.56.1/uxmlab_read_board.php";
+    public static final String URL = "http://192.168.123.108/uxmlab_read_board.php";
 
     private List<HashMap<String, String>> mAndroidMapList = new ArrayList<>();
 
@@ -47,6 +47,21 @@ public class Main2Activity extends AppCompatActivity implements LoadJSONTask.Lis
                 Intent intent2= getIntent();
                 String id = intent2.getStringExtra("id");
                 intent.putExtra("id",id);
+                startActivity(intent);
+//                Intent intent = new Intent(Main2Activity.this, BoardWriteActivity.class);
+//                startActivity(intent);
+            }
+        });
+
+        FloatingActionButton fab2 = (FloatingActionButton) findViewById(R.id.fab2);
+        fab2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent= new Intent(getApplicationContext(),FileUploadActivity.class);
+                //Intent intent2= getIntent();
+               // String id = intent2.getStringExtra("id");
+              //  intent.putExtra("id",id);
                 startActivity(intent);
 //                Intent intent = new Intent(Main2Activity.this, BoardWriteActivity.class);
 //                startActivity(intent);

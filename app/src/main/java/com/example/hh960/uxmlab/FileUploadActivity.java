@@ -20,6 +20,9 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class FileUploadActivity extends AppCompatActivity {
     private static final int SELECT_PHOTO = 100;
     Uri selectedImage;
@@ -58,7 +61,10 @@ public class FileUploadActivity extends AppCompatActivity {
     }
     public void uploadImage(View view) {
         //create reference to images folder and assing a name to the file that will be uploaded
-        imageRef = storageRef.child("images/"+selectedImage.getLastPathSegment());
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMHH_mm");
+        Date now = new Date();
+        String filename = formatter.format(now);
+        imageRef = storageRef.child("images/"+filename+ selectedImage.getLastPathSegment());
         //creating and showing progress dialog
         progressDialog = new ProgressDialog(this);
         progressDialog.setMax(100);

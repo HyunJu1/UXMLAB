@@ -71,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
     void login() {
         try {
             httpclient = new DefaultHttpClient();
-            httppost = new HttpPost("http://192.168.56.1/uxmlab_login.php");
+            httppost = new HttpPost("http://192.168.123.108/uxmlab_login.php");
             nameValuePairs = new ArrayList<NameValuePair>(2);
             nameValuePairs.add(new BasicNameValuePair("id", inputID.getText().toString()));
             nameValuePairs.add(new BasicNameValuePair("password", inputPW.getText().toString()));

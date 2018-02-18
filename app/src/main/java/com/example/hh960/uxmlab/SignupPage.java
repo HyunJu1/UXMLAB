@@ -91,7 +91,7 @@ public class SignupPage  extends Activity {
             String name = params[2];
             String email = params[3];
 
-            String link = "http://192.168.56.1/uxmlab_regis.php";
+            String link = "http://192.168.123.108/uxmlab_regis.php";
             String data = URLEncoder.encode("id", "UTF-8") + "=" + URLEncoder.encode(id, "UTF-8");
             data += "&" + URLEncoder.encode("password", "UTF-8") + "=" + URLEncoder.encode(password, "UTF-8");
             data += "&" + URLEncoder.encode("name", "UTF-8") + "=" + URLEncoder.encode(name, "UTF-8");

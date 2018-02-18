@@ -76,7 +76,7 @@ public class BoardWriteActivity  extends Activity {
                     String author = params[2];
 
 
-                    String link = "http://192.168.56.1/uxmlab_write_board.php";
+                    String link = "http://192.168.123.108/uxmlab_write_board.php";
 
                     String data =  URLEncoder.encode("board_title", "UTF-8") + "=" + URLEncoder.encode(board_title, "UTF-8");
                     data += "&" + URLEncoder.encode("board_content", "UTF-8") + "=" + URLEncoder.encode(board_content, "UTF-8");
